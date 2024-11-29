@@ -17,7 +17,7 @@ public class WebConfig implements WebMvcConfigurer {
 @Override
 public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/**")
-            .allowedOrigins("https://d-bproject-mw52vfdc8-pvhung05s-projects.vercel.app") // Thêm miền này vào
+            .allowedOrigins("https://d-bproject.vercel.app") // Thêm miền này vào
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*");
     }
