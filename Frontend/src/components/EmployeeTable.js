@@ -1,26 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const apiUrl = "https://backend-fu5o.onrender.com"; // URL của backend Java
 
 const EmployeeTable = () => {
   const [employees, setEmployees] = useState([]);
   const [editingEmployee, setEditingEmployee] = useState(null);
-  const [newEmployee, setNewEmployee] = useState({ id: '', name: '', phone: '', birthDate: '', address: '' });
+  const [newEmployee, setNewEmployee] = useState({
+    id: "",
+    name: "",
+    phone: "",
+    birthDate: "",
+    address: "",
+  });
   const [showModal, setShowModal] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     // Fetch employees from backend
-    axios.get('http://localhost:8080/api/employees')
-      .then(response => {
+    axios
+      .get(`${apiUrl}/api/employees`) // Fixed string interpolation
+      .then((response) => {
         setEmployees(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("There was an error fetching the employees:", error);
       });
   }, []);
 
   const addEmployee = () => {
-    setNewEmployee({ id: '', name: '', phone: '', birthDate: '', address: '' });
+    setNewEmployee({ id: "", name: "", phone: "", birthDate: "", address: "" });
     setEditingEmployee(null);
     setShowModal(true);
   };
@@ -34,8 +43,9 @@ const EmployeeTable = () => {
   const saveEmployee = () => {
     if (editingEmployee) {
       // Update employee
-      axios.put(`http://localhost:8080/api/employees/${editingEmployee.id}`, newEmployee)
-        .then(response => {
+      axios
+        .put(`${apiUrl}/api/employees/${editingEmployee.id}`, newEmployee) // Updated URL
+        .then((response) => {
           setEmployees((prevEmployees) =>
             prevEmployees.map((employee) =>
               employee.id === editingEmployee.id ? { ...newEmployee } : employee
@@ -43,43 +53,45 @@ const EmployeeTable = () => {
           );
           closeModal();
         })
-        .catch(error => {
+        .catch((error) => {
           console.error("There was an error updating the employee:", error);
         });
     } else {
       // Add new employee
-      axios.post('http://localhost:8080/api/employees', newEmployee)
-        .then(response => {
+      axios
+        .post(`${apiUrl}/api/employees`, newEmployee) // Updated URL
+        .then((response) => {
           setEmployees([...employees, response.data]);
           closeModal();
         })
-        .catch(error => {
+        .catch((error) => {
           console.error("There was an error adding the employee:", error);
         });
     }
   };
 
   const deleteEmployee = (id) => {
-    axios.delete(`http://localhost:8080/api/employees/${id}`)
+    axios
+      .delete(`${apiUrl}/api/employees/${id}`) // Updated URL
       .then(() => {
-        setEmployees(employees.filter(employee => employee.id !== id));
+        setEmployees(employees.filter((employee) => employee.id !== id));
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("There was an error deleting the employee:", error);
       });
   };
 
   const closeModal = () => {
     setShowModal(false);
-    setNewEmployee({ id: '', name: '', phone: '', birthDate: '', address: '' });
+    setNewEmployee({ id: "", name: "", phone: "", birthDate: "", address: "" });
     setEditingEmployee(null);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewEmployee(prevState => ({
+    setNewEmployee((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -124,8 +136,18 @@ const EmployeeTable = () => {
               <td>{employee.birthDate.slice(0, 10)}</td>
               <td>{employee.address}</td>
               <td>
-                <button onClick={() => editEmployee(employee)} className="action-button edit">Sửa</button>
-                <button onClick={() => deleteEmployee(employee.id)} className="action-button delete">Xóa</button>
+                <button
+                  onClick={() => editEmployee(employee)}
+                  className="action-button edit"
+                >
+                  Sửa
+                </button>
+                <button
+                  onClick={() => deleteEmployee(employee.id)}
+                  className="action-button delete"
+                >
+                  Xóa
+                </button>
               </td>
             </tr>
           ))}
@@ -135,7 +157,7 @@ const EmployeeTable = () => {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <h2>{editingEmployee ? 'Sửa Nhân viên' : 'Thêm Nhân viên Mới'}</h2>
+            <h2>{editingEmployee ? "Sửa Nhân viên" : "Thêm Nhân viên Mới"}</h2>
             <label>
               Tên:
               <input
@@ -176,8 +198,12 @@ const EmployeeTable = () => {
               />
             </label>
             <div className="modal-actions">
-              <button onClick={closeModal} className="action-button cancel">Hủy</button>
-              <button onClick={saveEmployee} className="action-button save">Lưu</button>
+              <button onClick={closeModal} className="action-button cancel">
+                Hủy
+              </button>
+              <button onClick={saveEmployee} className="action-button save">
+                Lưu
+              </button>
             </div>
           </div>
         </div>
