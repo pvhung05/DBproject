@@ -1,4 +1,6 @@
 # Hệ thống bán hàng
+- Tài khoản:
+- Mật khẩu:
 ## Tổng quan
 Dự án này làm front end với nodejs, làm backend với springboot và dùng cơ sở dư liệu với database.
 
