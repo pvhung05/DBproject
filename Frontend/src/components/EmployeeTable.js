@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const apiUrl = "https://backend-fu5o.onrender.com"; // URL của backend Java
+const apiUrl = "http://localhost:8080"; // URL của backend Java
 
 const EmployeeTable = () => {
   const [employees, setEmployees] = useState([]);
@@ -153,6 +153,7 @@ const EmployeeTable = () => {
           ))}
         </tbody>
       </table>
+
       <button onClick={addEmployee}>Thêm nhân viên</button>
       {showModal && (
         <div className="modal">

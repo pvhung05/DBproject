@@ -6,6 +6,8 @@ import InvoiceTable from './components/InvoiceTable';
 import EmployeeTable from './components/EmployeeTable';
 import PurchaseHistoryTable from './components/PurchaseHistory';
 import LoginPage from './components/LoginPage';
+import Nghich from "./components/nghich";
+
 import './App.css';
 
 const PrivateRoute = ({ element, isAuthenticated }) => {
@@ -133,6 +135,16 @@ function App() {
             <Route
               path="*"
               element={<Navigate to={isAuthenticated ? "/employees" : "/login"} />}
+            />
+
+            <Route
+                path="/warehouse"
+                element={
+                  <PrivateRoute
+                      isAuthenticated={isAuthenticated}
+                      element={<Nghich />}
+                  />
+                }
             />
           </Routes>
         </div>

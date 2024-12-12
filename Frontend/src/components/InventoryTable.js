@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FoodInventory from './FoodInventory';
 import HouseholdInventory from './HouseholdInventory';
+import Nghich from "./nghich";
 
 const InventoryTable = () => {
   const [activeTab, setActiveTab] = useState('food');
@@ -31,7 +32,7 @@ const InventoryTable = () => {
 
       {/* Display the selected inventory component */}
       <div className="inventory-content">
-        {activeTab === 'food' ? <FoodInventory /> : <HouseholdInventory />}
+        {activeTab === 'food' ? <FoodInventory /> : activeTab === 'household' ? <HouseholdInventory /> : <Nghich/>}
       </div>
     </div>
   );

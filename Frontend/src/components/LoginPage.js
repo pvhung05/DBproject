@@ -21,7 +21,7 @@ const LoginPage = ({ onLogin }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://backend-fu5o.onrender.com/api/login",
+        "http://localhost:8080/api/login",
         { username, password }
       );
       setLoading(false);
