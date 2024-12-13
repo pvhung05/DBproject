@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const apiUrl = "http://localhost:8080"; // URL của backend Java
+const apiUrl = "https://backend-awim.onrender.com"; // URL của backend Java
 
 const EmployeeTable = () => {
   const [employees, setEmployees] = useState([]);
