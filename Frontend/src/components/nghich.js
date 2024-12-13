@@ -11,7 +11,7 @@ function App() {
 
     useEffect(() => {
 
-            fetch("http://localhost:8080/api/warehouse")
+            fetch("https://backend-awim.onrender.com/api/warehouse")
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch warehouse");
@@ -28,7 +28,7 @@ function App() {
             });
 
 
-        fetch("http://localhost:8080/api/warehousehasproduct")
+        fetch("https://backend-awim.onrender.com/api/warehousehasproduct")
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch warehouse");
