@@ -22,7 +22,7 @@ const InvoiceTable = () => {
 
   useEffect(() => {
     // Fetch all invoices
-    fetch("http://localhost:8080/api/invoices")
+    fetch("https://backend-awim.onrender.com/api/invoices")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch invoices");
@@ -33,13 +33,13 @@ const InvoiceTable = () => {
       .catch((error) => setError(error.message)); // Handle error and set error message
 
     // Fetch employees for the employee dropdown
-    fetch("http://localhost:8080/api/employees")
+    fetch("https://backend-awim.onrender.com/api/employees")
       .then((response) => response.json())
       .then((data) => setEmployees(data)) // Assuming response contains employee details
       .catch((error) => setError(error.message));
 
     // Fetch products for the product dropdown
-    fetch("http://localhost:8080/api/products")
+    fetch("https://backend-awim.onrender.com/api/products")
       .then((response) => response.json())
       .then((data) => setProducts(data)) // Assuming response contains product details
       .catch((error) => setError(error.message));
@@ -72,7 +72,7 @@ const InvoiceTable = () => {
   };
 
   const handleSubmit = () => {
-    fetch("http://localhost:8080/api/invoices", {
+    fetch("https://backend-awim.onrender.com/api/invoices", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newInvoice),
