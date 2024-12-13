@@ -23,7 +23,7 @@ const FoodInventory = () => {
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const apiUrl = "http://localhost:8080"; // Update to the correct backend URL
+  const apiUrl = "https://backend-awim.onrender.com"; // Update to the correct backend URL
 
   // Fetch items from the API when the component mounts
   useEffect(() => {
