@@ -21,7 +21,7 @@ const LoginPage = ({ onLogin }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/login",
+        "https://backend-awim.onrender.com/api/login",
         { username, password }
       );
       setLoading(false);
