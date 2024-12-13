@@ -1,6 +1,6 @@
 # Hệ thống bán hàng
-- Tài khoản:
-- Mật khẩu:
+- Tài khoản: Nguyễn Đăng Huy
+- Mật khẩu:1234567890
 ## Tổng quan
 Dự án này làm front end với nodejs, làm backend với springboot và dùng cơ sở dư liệu với database.
 
