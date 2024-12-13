@@ -15,7 +15,7 @@ const HouseholdInventory = () => {
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const apiUrl = "http://localhost:8080"; // Updated backend URL
+  const apiUrl = "https://backend-awim.onrender.com"; // Updated backend URL
 
   // Fetch household items when the component is mounted
   useEffect(() => {
