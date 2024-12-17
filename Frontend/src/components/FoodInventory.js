@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-// Hàm định dạng ngày
+/**
+ * function date format
+ * @param dateString 123
+ * @returns {`${number}-${string}-${string}`} 123
+ */
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   const year = date.getFullYear();
@@ -25,7 +29,9 @@ const FoodInventory = () => {
 
   const apiUrl = "https://backend-awim.onrender.com"; // Update to the correct backend URL
 
-  // Fetch items from the API when the component mounts
+  /**
+   * Fetch items from the API when the component mounts
+   */
   useEffect(() => {
     axios
       .get(`${apiUrl}/api/foods`) // Use the updated URL
@@ -107,12 +113,19 @@ const FoodInventory = () => {
     setSearchTerm(e.target.value);
   };
 
-  // Filter items based on the search term
+  /**
+   * Filter items based on the search term
+   * @type {*[]} 123
+   */
   const filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Function to check if the expiration date has passed
+  /**
+   * Function to check if the expiration date has passed
+   * @param expirationDate 123
+   * @returns {boolean} 123
+   */
   const isExpired = (expirationDate) => {
     const currentDate = new Date();
     const expDate = new Date(expirationDate);

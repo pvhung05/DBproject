@@ -17,7 +17,9 @@ const EmployeeTable = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    // Fetch employees from backend
+    /**
+     * Fetch employees from backend
+     */
     axios
       .get(`${apiUrl}/api/employees`) // Fixed string interpolation
       .then((response) => {
@@ -42,7 +44,9 @@ const EmployeeTable = () => {
 
   const saveEmployee = () => {
     if (editingEmployee) {
-      // Update employee
+      /**
+       * Update employee
+       */
       axios
         .put(`${apiUrl}/api/employees/${editingEmployee.id}`, newEmployee) // Updated URL
         .then((response) => {
@@ -57,7 +61,9 @@ const EmployeeTable = () => {
           console.error("There was an error updating the employee:", error);
         });
     } else {
-      // Add new employee
+      /**
+       * Add new employee
+       */
       axios
         .post(`${apiUrl}/api/employees`, newEmployee) // Updated URL
         .then((response) => {

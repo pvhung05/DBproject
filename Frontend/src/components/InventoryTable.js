@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FoodInventory from './FoodInventory';
 import HouseholdInventory from './HouseholdInventory';
-import Nghich from "./nghich";
+import Nghich from "./WareHouse";
 
 const InventoryTable = () => {
   const [activeTab, setActiveTab] = useState('food');

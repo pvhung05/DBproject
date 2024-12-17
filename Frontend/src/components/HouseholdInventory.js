@@ -17,7 +17,9 @@ const HouseholdInventory = () => {
 
   const apiUrl = "https://backend-awim.onrender.com"; // Updated backend URL
 
-  // Fetch household items when the component is mounted
+  /**
+   * Fetch household items when the component is mounted
+   */
   useEffect(() => {
     axios
       .get(`${apiUrl}/api/households`) // Use the updated URL
@@ -113,7 +115,10 @@ const HouseholdInventory = () => {
     setSearchTerm(e.target.value);
   };
 
-  // Filter the items based on the search term
+  /**
+   * Filter the items based on the search term
+   * @type {*[]} 123
+   */
   const filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );

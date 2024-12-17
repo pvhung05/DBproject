@@ -6,7 +6,7 @@ import InvoiceTable from './components/InvoiceTable';
 import EmployeeTable from './components/EmployeeTable';
 import PurchaseHistoryTable from './components/PurchaseHistory';
 import LoginPage from './components/LoginPage';
-import Nghich from "./components/nghich";
+import Nghich from "./components/WareHouse";
 
 import './App.css';
 
